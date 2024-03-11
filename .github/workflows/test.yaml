@@ -1,0 +1,24 @@
+name: Run Docker Compose on PR
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  run_docker_compose:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout chron repo
+        uses: actions/checkout@v2
+
+      - name: Checkout gideon repo
+        uses: actions/checkout@v2
+        with:
+          repository: my9006/gideon
+          path: gideon
+
+      - name: Run Docker Compose
+        run: |
+          cd gideon
+          docker compose up
