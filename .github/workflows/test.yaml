@@ -18,7 +18,20 @@ jobs:
           repository: my9006/gideon
           path: gideon
 
-      - name: Run Docker Compose
+      - name: Run Docker Compose with Tests
         run: |
-          cd gideon
-          docker compose up
+            cd gideon
+            docker-compose up
+            exit_code=$?
+            if [ $exit_code -ne 0 ]; then
+            echo "::error::Docker Compose command failed with exit code $exit_code"
+            exit $exit_code
+            fi
+
+            - name: Report Success
+              if: success()
+              run: echo "Tests passed successfully!"
+
+            - name: Report Failure
+              if: failure()
+              run: echo "Tests failed!"
