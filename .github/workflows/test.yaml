@@ -28,10 +28,10 @@ jobs:
             exit $exit_code
             fi
 
-            - name: Report Success
-              if: success()
-              run: echo "Tests passed successfully!"
+      - name: Report Success
+        if: success()
+        run: echo "Tests passed successfully!"
 
-            - name: Report Failure
-              if: failure()
-              run: echo "Tests failed!"
+      - name: Report Failure
+        if: failure()
+        run: echo "Tests failed!"
