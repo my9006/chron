@@ -30,7 +30,7 @@ jobs:
 
       - name: Report Results
         run: |
-          if [ ${{ job.status }} == 'success' ]; then
+          if [ ${{ steps.compose.outcome }} == 'success' ]; then
             echo "Tests passed successfully!"
           else
             echo "Tests failed!"
