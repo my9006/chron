@@ -19,6 +19,7 @@ jobs:
           path: gideon
 
       - name: Run Docker Compose with Tests
+        id: aat
         run: |
           cd gideon
           docker-compose up
@@ -29,10 +30,5 @@ jobs:
           fi
 
       - name: Report Results
-        run: |
-          if [ ${{ steps.compose.outcome }} == 'success' ]; then
-            echo "Tests passed successfully!"
-          else
-            echo "Tests failed!"
-            exit 1
-          fi
+        if: job.steps.aat.status == failure()
+        run: exit 1
