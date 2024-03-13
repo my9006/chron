@@ -29,9 +29,10 @@ jobs:
           exit $exit_code
           fi
 
-      - name: Report Results
-#        if: job.steps.aat.status == failure()
-        run: |
-          echo "not to the result"
-          echo "${{ toJson(steps) }}"
-          exit 1
+      - name: Report Success
+        if: steps.aat.outcome == "success"
+        run: exit 0
+
+      - name: Report Fail
+        if: steps.aat.outcome != "success"
+        run: exit 1
