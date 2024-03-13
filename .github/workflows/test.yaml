@@ -32,6 +32,6 @@ jobs:
       - name: Report Results
 #        if: job.steps.aat.status == failure()
         run: |
-          echo "not to the result"
-          echo job.steps
+          echo "now to the result"
+          echo "${{ jobs.run_docker_compose.steps[1] }}"
           exit 1
