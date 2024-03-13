@@ -24,6 +24,8 @@ jobs:
           cd gideon
           docker-compose up
           exit_code=$?
+          echo "**********************************"
+          echo "$exit_code"
           if [ $exit_code -ne 0 ]; then
           echo "::error::Docker Compose command failed with exit code $exit_code"
           exit $exit_code
@@ -31,7 +33,7 @@ jobs:
 
       - name: Report Success
         if: steps.aat.outcome == 'success'
-        run: exit 0
+        run: echo 0
 
       - name: Report Fail
         if: steps.aat.outcome != 'success'
