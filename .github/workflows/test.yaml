@@ -30,9 +30,9 @@ jobs:
           fi
 
       - name: Report Success
-        if: steps.aat.outcome == "success"
+        if: steps.aat.outcome == 'success'
         run: exit 0
 
       - name: Report Fail
-        if: steps.aat.outcome != "success"
+        if: steps.aat.outcome != 'success'
         run: exit 1
