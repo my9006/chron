@@ -33,5 +33,5 @@ jobs:
 #        if: job.steps.aat.status == failure()
         run: |
           echo "not to the result"
-          echo job.steps
+          echo $job.steps
           exit 1
