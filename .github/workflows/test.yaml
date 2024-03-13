@@ -30,8 +30,10 @@ jobs:
           fi
 
       - name: Report Success
-        if: steps.aat.outcome == 'success'
-        run: exit 0
+        # if: steps.aat.outcome == 'success'
+        run: |
+          echo "${{ toJson(steps) }}"
+          exit 0
 
       - name: Report Fail
         if: steps.aat.outcome != 'success'
