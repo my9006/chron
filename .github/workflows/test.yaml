@@ -33,5 +33,5 @@ jobs:
 #        if: job.steps.aat.status == failure()
         run: |
           echo "not to the result"
-          echo "${{ jobs.run_docker_compose.steps[1] }}"
+          echo "${{ toJson(steps) }}"
           exit 1
