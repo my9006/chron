@@ -25,7 +25,7 @@ jobs:
           docker-compose up
           exit_code=$?
           echo "**********************************"
-          echo "$exit_code"
+          printenv
           if [ $exit_code -ne 0 ]; then
           echo "::error::Docker Compose command failed with exit code $exit_code"
           exit $exit_code
