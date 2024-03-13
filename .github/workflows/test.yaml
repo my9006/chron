@@ -30,5 +30,8 @@ jobs:
           fi
 
       - name: Report Results
-        if: job.steps.aat.status == failure()
-        run: exit 1
+#        if: job.steps.aat.status == failure()
+        run: |
+          echo "not to the result"
+          echo job.steps
+          exit 1
