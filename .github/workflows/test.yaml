@@ -26,4 +26,5 @@ jobs:
         run: |
           git clone https://github.com/my9006/gideon.git
           cd gideon
-          mvn -B test
+          mvn clean install -DskipTests
+          mvn test
