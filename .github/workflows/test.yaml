@@ -3,7 +3,7 @@ name: Run Maven Tests on PR
 on:
   pull_request:
     branches:
-      - main  # Adjust to match your main branch name in the chron repository
+      - main
 
 jobs:
   run_tests:
