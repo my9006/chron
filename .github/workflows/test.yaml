@@ -21,7 +21,8 @@ jobs:
         uses: actions/setup-java@v2
         with:
           java-version: '11'
-
+          distribution: 'adopt'
+          
       - name: Run Maven Tests
         run: |
           git clone https://github.com/my9006/gideon.git
